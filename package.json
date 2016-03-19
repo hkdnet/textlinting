@@ -1,0 +1,18 @@
+{
+  "name": "textlinting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "textlint": "6.0.1",
+    "textlint-rule-ginger": "^0.1.2",
+    "textlint-rule-rousseau": "1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "textlint target.md"
+  },
+  "author": "",
+  "license": "ISC"
+}
