@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 require 'fileutils'
 dir = `ghq list -p -e hkdnet/textlinting`.chomp
+fix_flag = false
 ARGV.each do |f|
+  next fix_flag = true if f == '-f'
   FileUtils.cp(f, "#{dir}/target.md")
   FileUtils.cd(dir) do
     puts `$(npm bin)/textlint target.md`
-    puts `$(npm bin)/textlint --fix target.md`
+    puts `$(npm bin)/textlint --fix target.md` if fix_flag
   end
   FileUtils.cp("#{dir}/target.md", f)
 end
